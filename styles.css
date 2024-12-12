@@ -1,0 +1,314 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f4f4f4; /* Light background color */
+}
+
+/* CSS Variables for Colors */
+:root {
+    --primary-color: #f4a261;
+    --secondary-color: #333;
+    --light-background: #f4f4f4;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1rem;
+}
+
+.navbar a:hover {
+    color: var(--primary-color);
+}
+
+.search-cart {
+    display: flex;
+    align-items: center;
+}
+
+.search-cart input {
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+
+/* Hero Banner Container */
+.hero-banner {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    background-image: url('path/to/your/image.png'); /* Add the image path */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Text Overlay */
+.hero-banner .banner-text {
+    
+    z-index: 2;
+    color: white;
+    font-size: 3.5rem; /* Adjust for readability */
+    font-weight: bold;
+    font-family: 'Arial', sans-serif; /* Or choose a different font */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); /* Enhanced text shadow */
+    text-align:center;
+    padding: 15px 30px;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+    border-radius: 5px;
+    max-width: 80%;
+    left: 50%;
+    transform: translate(-56%, -90%); /* Center text both vertically and horizontally */
+    box-sizing: border-box;
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 768px) {
+    .hero-banner .banner-text {
+        font-size: 2rem; /* Smaller text on smaller screens */
+        padding: 10px;
+        max-width: 90%; /* Allow more space on small screens */
+    }
+}
+
+/* Slider */
+.slider {
+    display: flex;
+    animation: slide 12s infinite;
+    width: 100%;
+    height: 100%;
+}
+
+/* Individual Slides */
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Navigation Arrows */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.slider-nav:hover {
+    color: var(--primary-color);
+}
+
+.slider-nav.left {
+    left: 10px;
+}
+
+.slider-nav.right {
+    right: 10px;
+}
+
+/* Dots Navigation */
+.dots {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: var(--primary-color);
+}
+
+@keyframes slide {
+    0%, 20% { transform: translateX(0); }
+    25%, 45% { transform: translateX(-100%); }
+    50%, 70% { transform: translateX(-200%); }
+    75%, 100% { transform: translateX(-300%); }
+}
+
+/* Categories Section */
+.categories {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: var(--light-background);
+}
+
+.categories h2 {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+.category-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.category {
+    flex: 1;
+    max-width: 220px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.category:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: scale(1.05); /* Scale effect */
+}
+
+/* Trending Products Section */
+.trending {
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.trending h2 {
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    font-size: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.product:hover {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Add View Details Button to Product */
+.product .view-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product .view-btn:hover {
+    background-color: #e07b3c;
+}
+
+/* Footer */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .hero-banner {
+        height: 50vh;
+    }
+
+    .category-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
